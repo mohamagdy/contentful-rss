@@ -9,6 +9,6 @@ class Contentful::SyncController < ApplicationController
     )
 
     # Syncing
-    @sync = client.sync(initial: true)
+    @sync = client.sync(params[:sync_url] || { initial: true })
   end
 end

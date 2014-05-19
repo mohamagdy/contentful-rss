@@ -16,5 +16,13 @@ xml.rss version: "2.0" do
         xml.enclosure item.display.url
       end
     end
+
+    if @sync.respond_to?(:next_page_url)
+      # Showed be initialed after calling "each_item"
+      xml.item do
+        xml.title "Next Page"
+        xml.link root_url(sync_url: @sync.next_page_url)
+      end
+    end
   end
 end

@@ -34,6 +34,7 @@ gem 'spring', group: :development
 # Rspec testing
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'nokogiri'
 end
 
 # Contentful gem
