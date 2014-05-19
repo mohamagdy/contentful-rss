@@ -18,3 +18,7 @@
 # Config files
 config/database.yml
 config/secrets.yml
+
+# RVM
+.ruby-gemset
+.ruby-version
