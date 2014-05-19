@@ -9,17 +9,11 @@ xml.rss version: "2.0" do
     @sync.each_item do |item|
       xml.item do
         xml.category item.type
-        xml.pubDate item.updated_at
+        xml.pubDate item.display.publication_date
 
-        if item.is_a?(Contentful::Asset)
-          item.fields.each do |key, value|
-            xml.title key.to_s
-            xml.description value
-          end
-        else
-          xml.title "Entry"
-          xml.description "Why not?"
-        end
+        xml.title "#{item.display.title} (#{item.type})"
+        xml.description item.display.description
+        xml.enclosure item.display.url
       end
     end
   end

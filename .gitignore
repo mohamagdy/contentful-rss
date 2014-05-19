@@ -22,3 +22,5 @@ config/secrets.yml
 # RVM
 .ruby-gemset
 .ruby-version
+
+*.DS_Store
