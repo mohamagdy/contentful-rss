@@ -39,3 +39,9 @@ end
 
 # Contentful gem
 gem 'contentful'
+
+# oAuth2
+gem 'oauth2'
+
+# HTTP requests
+gem 'httparty'

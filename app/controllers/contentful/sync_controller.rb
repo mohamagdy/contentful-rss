@@ -1,5 +1,4 @@
 class Contentful::SyncController < ApplicationController
-
   # GET /contentful/sync
   def index
     # Creating the client
