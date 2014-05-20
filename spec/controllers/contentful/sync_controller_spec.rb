@@ -21,6 +21,10 @@ describe Contentful::SyncController do
       expect(response.content_type).to eq(rss_content_type)
     end
 
+    it "should raise not found error" do
+      expect { get :index, {} }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+
     it "updates the next_sync_url for the current_user" do
       allow(controller).to receive(:current_user).and_return(current_user)
 
