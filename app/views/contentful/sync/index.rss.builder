@@ -6,7 +6,7 @@ xml.rss version: "2.0" do
     xml.description "Syncing resources (Entries and Assets) from Contentful API"
     xml.link root_url
 
-    @sync.each_item do |item|
+    (@items || []).each do |item|
       xml.item do
         xml.category item.type
         xml.pubDate item.display.publication_date
@@ -17,11 +17,10 @@ xml.rss version: "2.0" do
       end
     end
 
-    if @sync.respond_to?(:next_page_url)
-      # Showed be initialed after calling "each_item"
+    if @next_page_url.present?
       xml.item do
         xml.title "Next Page"
-        xml.link root_url(sync_url: @sync.next_page_url)
+        xml.link root_url(user_id: current_user.id, page_url: @next_page_url)
       end
     end
   end

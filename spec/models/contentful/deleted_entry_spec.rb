@@ -1,10 +1,12 @@
 require 'spec_helper'
 
 describe Contentful::DeletedEntry do
+  let(:user) { FactoryGirl.create(:user) }
+
   let(:contentful_deleted_entry) do
     client = Contentful::Client.new(
-      space: "cfexampleapi",
-      access_token: "b4c0n73n7fu1"
+      access_token: user.access_token,
+      space: user.space
     )
 
     client.entry("nyancat")
